@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CartItem from "./CartItem";
 import { connect } from "react-redux";
-
+import * as action from '../Actions'
 class Cart extends Component {
   render() {
     let element_Cart = this.props.Carts.map((product, index) => {
@@ -41,10 +41,10 @@ class Cart extends Component {
                   <tr>
                     <th></th>
                     <th>Sản phẩm</th>
-                    <th>Hình ảnh</th>
+                    <th className='text-center'>Hình ảnh</th>
                     <th>Giá</th>
                     <th>Số lượng</th>
-                    <th>Tổng cộng</th>
+                    <th>Thành tiền</th>
                     <th>Chức năng</th>
                   </tr>
                 </thead>
@@ -58,7 +58,10 @@ class Cart extends Component {
             </div>
 
             <div className="modal-footer">
-              <button type="button" className="btn btn-primary form-control">
+              <button type="button" className="btn btn-primary form-control"
+              data-toggle="modal" data-target="#largeShoes"
+                onClick={()=> this.props.clear_Cart()}
+              >
                 Thanh toán
               </button>
             </div>
@@ -76,8 +79,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    dispatch1: () => {
-      dispatch("");
+    clear_Cart: () => {
+      dispatch(action.clear_Cart());
     }
   };
 };

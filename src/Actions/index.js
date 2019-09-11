@@ -17,3 +17,15 @@ export const delete_Product_Cart = product_id => {
     product_id
   };
 };
+export const update_Cart = (product_id, quantity) => {
+  return {
+    type: types.UPDATE_TO_CART,
+    quantity,
+    product_id
+  };
+};
+export const clear_Cart = () => {
+  return {
+    type: types.CLEAR_CART
+  };
+};

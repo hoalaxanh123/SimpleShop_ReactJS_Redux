@@ -18,7 +18,6 @@ class ListProduct extends Component {
   }
 }
 const mapStateToProps = (state, ownProps) => {
-  console.log('state :', state);
   return {
     listProduct: state.Products
   };
