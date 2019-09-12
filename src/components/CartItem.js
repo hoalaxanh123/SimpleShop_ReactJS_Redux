@@ -22,7 +22,13 @@ class CartItem extends Component {
         <td>
           <span className="input-group">
             <b>{product.quantity}</b>
+            <button type="button" className="btn btn-default mt-left5" onClick={()=>this.props.update_Cart(product.id,1)}>
+              +
+            </button>
 
+            <button type="button" className="btn btn-default mt-left5" onClick={()=>this.props.update_Cart(product.id,-1)}>
+              -
+            </button>
           </span>
         </td>
         <td>{product.price * product.quantity}</td>
